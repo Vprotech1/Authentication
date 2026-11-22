@@ -1,0 +1,214 @@
+
+/* =================================
+   GENERAL RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 20px;
+}
+
+/* =================================
+   HEADINGS AND PARAGRAPHS
+================================= */
+
+h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+p {
+    color: #eee;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* =================================
+   LOGIN AND REGISTER FORMS
+================================= */
+
+form {
+    background: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Labels */
+
+label {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+/* Input Fields */
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 6px rgba(118, 75, 162, 0.3);
+}
+
+/* =================================
+   BUTTONS
+================================= */
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+/* =================================
+   LOGIN ERROR MESSAGE
+================================= */
+
+h5 {
+    color: #e63946;
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+/* =================================
+   REGISTER SUCCESS MESSAGE
+================================= */
+
+.p {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 15px;
+}
+
+.ch h2 {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+/* =================================
+   DASHBOARD DESIGN
+================================= */
+
+body:has(a[href="/logout"]) {
+    text-align: center;
+}
+
+body:has(a[href="/logout"]) h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+body:has(a[href="/logout"]) a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 13px 30px;
+    margin: 12px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+body:has(a[href="/logout"]) a:hover {
+    background: white;
+    color: #764ba2;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout link */
+
+body:has(a[href="/logout"]) a[href="/logout"] {
+    background: #e63946;
+    border-color: #e63946;
+}
+
+body:has(a[href="/logout"]) a[href="/logout"]:hover {
+    background: #c82333;
+    color: white;
+}
+
+/* Register link */
+
+body:has(a[href="/logout"]) a[href="/register"] {
+    background: #fff;
+    color: #764ba2;
+    border-color: white;
+}
+
+body:has(a[href="/logout"]) a[href="/register"]:hover {
+    background: #eee;
+}
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 480px) {
+
+    form {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 12px;
+    }
+
+    body:has(a[href="/logout"]) a {
+        padding: 12px 22px;
+        margin: 8px 4px;
+    }
+}

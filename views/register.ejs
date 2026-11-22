@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+        <h2>Create An Account</h2>
+        <div class="p">
+                <div class="ch">
+                        <% if (locals.mgss) { %>
+                                <h2>
+                                        <%= mgss %>
+                                </h2>
+                                <script>
+                                        setTimeout(() => {
+                                                window.location.href = '/';
+                                        }, 2000)
+                                </script>
+                                <% } %>
+
+                </div>
+        </div>
+
+        <form action="/register" method="post">
+
+                <label for="">Full-Name</label>
+                <input type="text" placeholder="Enter Your Full-Name" name="firstname" required>
+
+
+                <label for="">Email</label>
+                <input type="email" name="email" placeholder="Enter Email" required autocomplete="on">
+
+                <label for="">Password</label>
+                <input id="pa" type="password" name="password" required maxlength="13">
+<p id="prt" style="color: black; text-align: left;"></p>
+                <button type="submit">Submit</button>
+
+        </form>
+        <p>Already have an account?<a href="/" style="color: #fff; text-decoration: none;"> Login </a>
+        </p>
+        <script>
+                window.addEventListener('pageshow', (event) => {
+                        if (event.persisted) {
+                                window.location.reload();
+                        }
+                })
+                const pa = document.getElementById('pa');
+                                const prt = document.getElementById('prt')
+
+                pa.addEventListener('input',()=>{
+                        let max = pa.value.length;
+                        let m =  13 - max;
+                        prt.textContent = `Remaining ${m}`;
+                })
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #333;
+    padding: 40px;
+}
+
+/* Dashboard heading */
+h2 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #64748b;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Table container */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Table heading */
+th {
+    background: #1e293b;
+    color: white;
+    padding: 18px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table data */
+td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 15px;
+    color: #475569;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* Hover effect */
+tr:hover {
+    background: #eaf2ff;
+    transition: 0.3s ease;
+}
+
+/* Remove bottom border from last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+}
