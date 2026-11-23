@@ -1,6 +1,5 @@
 require('dotenv').config();
 const mydb = require('./config/db')
-
 const session = require('express-session')
 const mysqlstore = require('express-mysql-session')(session);
 const options = {
@@ -25,6 +24,13 @@ const app = express();
 app.use(express.static('public'))
 const http = require('http')
 const { Server } = require('socket.io');
+const ejs = require('ejs');
+const path = require('path');
+
+app.engine('ejs', ejs.__express);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 
 // 
 app.use(express.urlencoded({ extended: false }))
