@@ -1,16 +1,20 @@
 require('dotenv').config();
+const mydb = require('./config/db')
+
 const session = require('express-session')
 const mysqlstore = require('express-mysql-session')(session);
 const options = {
-    host: 'localhost',
-    user: 'root',
-    database: process.env.database,
-    password: process.env.password
+         host: process.env.TIDB_HOST,
+            user: process.env.TIDB_USER,
+            database: process.env.TIDB_DATABASE,
+            password: process.env.TIDB_PASSWORD,
+            port: process.env.TIDB_PORT,
+            ssl: {}
 
 }
-const sessionstore = new mysqlstore(options)
 
-const mydb = require('./config/db')
+const sessionstore = new mysqlstore({},mydb.pool)
+
 
 const createController = require('./controller/controller')
 
@@ -31,7 +35,7 @@ const sessionmildware = (session({
     saveUninitialized: false,
     store: sessionstore,
     cookie: {
-        maxAge: 1 * 60 * 1000
+        maxAge: 10 * 60 * 1000
     }
 }));
 app.use(sessionmildware)
@@ -99,8 +103,8 @@ async function server() {
         })
         app.get('/register', (req, res) => {
 
-            const msg = req.session.name;
-            req.session.name = null;
+            const msg = req.session.namev;
+            req.session.namev = null;
             res.set('Cache-Control', 'no-store, no-cache, must-revalidate,private')
             res.set('Pragma', 'no-cache');
             res.render('register.ejs', { mgss: msg })

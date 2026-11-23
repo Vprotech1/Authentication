@@ -35,10 +35,24 @@
                 <label for="">Email</label>
                 <input type="email" name="email" placeholder="Enter Email" required autocomplete="on">
 
-                <label for="">Password</label>
-                <input id="pa" type="password" name="password" required maxlength="13">
-<p id="prt" style="color: black; text-align: left;"></p>
-                <button type="submit">Submit</button>
+
+                <% if (locals.error) { %>
+                        <p style="color: red; text-align: left;">
+                                <%= error %>
+                        </p>
+                        <script>
+                                setTimeout(() => {
+                                        window.location.href = '/register';
+                                }, 1000)
+                        </script>
+                        <% } %>
+
+
+                                <label for="">Password</label>
+                                <input id="pa" type="password" name="password" required maxlength="13"
+                                        placeholder="Enter Password">
+                                <p id="prt" style="color: black; text-align: left;"></p>
+                                <button type="submit">Submit</button>
 
         </form>
         <p>Already have an account?<a href="/" style="color: #fff; text-decoration: none;"> Login </a>
@@ -50,11 +64,11 @@
                         }
                 })
                 const pa = document.getElementById('pa');
-                                const prt = document.getElementById('prt')
+                const prt = document.getElementById('prt')
 
-                pa.addEventListener('input',()=>{
+                pa.addEventListener('input', () => {
                         let max = pa.value.length;
-                        let m =  13 - max;
+                        let m = 13 - max;
                         prt.textContent = `Remaining ${m}`;
                 })
         </script>

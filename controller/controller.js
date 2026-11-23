@@ -8,11 +8,13 @@ function createController(db) {
 
             const result = await db.execute('INSERT INTO users(fullname,email,password) VALUES(?,?,?)',
                 [firstname, email, hashpassword])
-            req.session.name = 'Account created successfuly'
+            req.session.namev = 'Account created successfuly'
             return res.redirect('/register')
         } catch (error) {
             console.log(error.message)
-            res.send('email already exist')
+            return res.render('register.ejs', { error: 'Email already exist' })
+
+
         }
 
     }
